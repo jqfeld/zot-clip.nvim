@@ -1,9 +1,9 @@
-local clipboard = require("img-clip.clipboard")
-local markup = require("img-clip.markup")
-local config = require("img-clip.config")
-local debug = require("img-clip.debug")
-local util = require("img-clip.util")
-local fs = require("img-clip.fs")
+local clipboard = require("zot-clip.clipboard")
+local markup = require("zot-clip.markup")
+local config = require("zot-clip.config")
+local debug = require("zot-clip.debug")
+local util = require("zot-clip.util")
+local fs = require("zot-clip.fs")
 
 local M = {}
 
@@ -26,12 +26,12 @@ M.paste_image = function(input)
 
   -- ensure clipboard command is valid
   if not clipboard.get_clip_cmd() then
-    util.error("Could not get clipboard command. See :checkhealth img-clip.")
+    util.error("Could not get clipboard command. See :checkhealth zot-clip.")
     return false
   end
 
   -- if no input is provided, check clipboard content
-  if clipboard.content_is_image() then
+  if clipboard.content_is_zot() then
     return M.paste_image_from_clipboard()
   end
 

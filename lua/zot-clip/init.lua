@@ -1,5 +1,5 @@
-local config = require("img-clip.config")
-local paste = require("img-clip.paste")
+local config = require("zot-clip.config")
+local paste = require("zot-clip.paste")
 
 local M = {}
 

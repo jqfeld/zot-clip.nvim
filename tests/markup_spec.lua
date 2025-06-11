@@ -1,5 +1,5 @@
-local markup = require("img-clip.markup")
-local config = require("img-clip.config")
+local markup = require("zot-clip.markup")
+local config = require("zot-clip.config")
 
 describe("markup", function()
   before_each(function()

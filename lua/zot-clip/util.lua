@@ -1,5 +1,5 @@
-local config = require("img-clip.config")
-local debug = require("img-clip.debug")
+local config = require("zot-clip.config")
+local debug = require("zot-clip.debug")
 
 local M = {}
 
@@ -59,21 +59,21 @@ end
 ---@param msg string
 M.warn = function(msg)
   if config.get_opt("verbose") then
-    vim.notify(msg, vim.log.levels.WARN, { title = "img-clip" })
+    vim.notify(msg, vim.log.levels.WARN, { title = "zot-clip" })
   end
 end
 
 ---@param msg string
 M.error = function(msg)
   if config.get_opt("verbose") then
-    vim.notify(msg, vim.log.levels.ERROR, { title = "img-clip" })
+    vim.notify(msg, vim.log.levels.ERROR, { title = "zot-clip" })
   end
 end
 
 ---@param msg string
 M.debug = function(msg)
   if config.options.debug then
-    vim.notify(msg, vim.log.levels.DEBUG, { title = "img-clip" })
+    vim.notify(msg, vim.log.levels.DEBUG, { title = "zot-clip" })
   end
 end
 

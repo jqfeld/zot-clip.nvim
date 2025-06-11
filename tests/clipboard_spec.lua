@@ -1,6 +1,6 @@
-local clipboard = require("img-clip.clipboard")
-local config = require("img-clip.config")
-local util = require("img-clip.util")
+local clipboard = require("zot-clip.clipboard")
+local config = require("zot-clip.config")
+local util = require("zot-clip.util")
 
 describe("clipboard", function()
   before_each(function()
@@ -54,7 +54,7 @@ describe("clipboard", function()
         return [[TARGETS\nimage/png]], 0 -- output of xclip
       end
 
-      assert.is_true(clipboard.content_is_image())
+      assert.is_true(clipboard.content_is_zot())
     end)
 
     it("returns false if clipboard content is not an image", function()
@@ -63,7 +63,7 @@ describe("clipboard", function()
         return [[TARGETS\nUTF8_STRING]], 0 -- output of xclip
       end
 
-      assert.is_false(clipboard.content_is_image())
+      assert.is_false(clipboard.content_is_zot())
     end)
 
     it("gets first line of clipboard content", function()
@@ -110,7 +110,7 @@ describe("clipboard", function()
         return [[TARGETS\nimage/png]], 0 -- output of wl-paste
       end
 
-      assert.is_true(clipboard.content_is_image())
+      assert.is_true(clipboard.content_is_zot())
     end)
 
     it("returns false if clipboard content is not an image", function()
@@ -119,7 +119,7 @@ describe("clipboard", function()
         return [[TARGETS\nUTF8_STRING]], 0 -- output of wl-paste
       end
 
-      assert.is_false(clipboard.content_is_image())
+      assert.is_false(clipboard.content_is_zot())
     end)
 
     it("gets first line of clipboard content", function()
@@ -167,7 +167,7 @@ describe("clipboard", function()
           return nil, 0 -- output of pngpaste
         end
 
-        assert.is_true(clipboard.content_is_image())
+        assert.is_true(clipboard.content_is_zot())
       end)
 
       it("returns false if clipboard content is not an image", function()
@@ -176,7 +176,7 @@ describe("clipboard", function()
           return nil, 1 -- output of pngpaste
         end
 
-        assert.is_false(clipboard.content_is_image())
+        assert.is_false(clipboard.content_is_zot())
       end)
 
       it("gets first line of clipboard content", function()
@@ -216,7 +216,7 @@ describe("clipboard", function()
     end)
 
     it("returns true if clipboard content is an image", function()
-      -- pwsh output, see issue https://github.com/HakonHarnes/img-clip.nvim/issues/13
+      -- pwsh output, see issue https://github.com/HakonHarnes/zot-clip.nvim/issues/13
       util.execute = function()
         return [[
 �[32;1mTag                  : �[0m
@@ -237,7 +237,7 @@ describe("clipboard", function()
           0
       end
 
-      assert.is_true(clipboard.content_is_image())
+      assert.is_true(clipboard.content_is_zot())
     end)
 
     it("returns false if clipboard content is not an image", function()
@@ -245,7 +245,7 @@ describe("clipboard", function()
         return "", 0 -- output of powershell
       end
 
-      assert.is_false(clipboard.content_is_image())
+      assert.is_false(clipboard.content_is_zot())
     end)
 
     it("gets first line of clipboard content", function()

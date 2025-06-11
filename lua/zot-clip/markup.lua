@@ -1,5 +1,5 @@
-local config = require("img-clip.config")
-local fs = require("img-clip.fs")
+local config = require("zot-clip.config")
+local fs = require("zot-clip.fs")
 
 local M = {}
 

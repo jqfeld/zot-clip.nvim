@@ -1,29 +1,29 @@
-*img-clip.nvim.txt*           For NVIM v0.8.0          Last change: April 2025
+*zot-clip.nvim.txt*           For NVIM v0.8.0          Last change: April 2025
 
 ==============================================================================
-Table of Contents                            *img-clip.nvim-table-of-contents*
+Table of Contents                            *zot-clip.nvim-table-of-contents*
 
-1. img-clip.nvim                                 |img-clip.nvim-img-clip.nvim|
-  - Features                            |img-clip.nvim-img-clip.nvim-features|
-  - Requirements                    |img-clip.nvim-img-clip.nvim-requirements|
-  - Installation                    |img-clip.nvim-img-clip.nvim-installation|
-  - Usage                                  |img-clip.nvim-img-clip.nvim-usage|
-  - Configuration                  |img-clip.nvim-img-clip.nvim-configuration|
-  - Drag and drop                  |img-clip.nvim-img-clip.nvim-drag-and-drop|
-  - Integrations                    |img-clip.nvim-img-clip.nvim-integrations|
-  - Contributing                    |img-clip.nvim-img-clip.nvim-contributing|
+1. zot-clip.nvim                                 |zot-clip.nvim-zot-clip.nvim|
+  - Features                            |zot-clip.nvim-zot-clip.nvim-features|
+  - Requirements                    |zot-clip.nvim-zot-clip.nvim-requirements|
+  - Installation                    |zot-clip.nvim-zot-clip.nvim-installation|
+  - Usage                                  |zot-clip.nvim-zot-clip.nvim-usage|
+  - Configuration                  |zot-clip.nvim-zot-clip.nvim-configuration|
+  - Drag and drop                  |zot-clip.nvim-zot-clip.nvim-drag-and-drop|
+  - Integrations                    |zot-clip.nvim-zot-clip.nvim-integrations|
+  - Contributing                    |zot-clip.nvim-zot-clip.nvim-contributing|
 
 ==============================================================================
-1. img-clip.nvim                                 *img-clip.nvim-img-clip.nvim*
+1. zot-clip.nvim                                 *zot-clip.nvim-zot-clip.nvim*
 
 Effortlessly embed images into any markup language, like LaTeX, Markdown or
 Typst.
 
 
-https://github.com/HakonHarnes/img-clip.nvim/assets/89907156/ab4edc10-d296-4532-bfce-6abdd4f218bf
+https://github.com/HakonHarnes/zot-clip.nvim/assets/89907156/ab4edc10-d296-4532-bfce-6abdd4f218bf
 
 
-FEATURES                                *img-clip.nvim-img-clip.nvim-features*
+FEATURES                                *zot-clip.nvim-zot-clip.nvim-features*
 
 - Paste images directly from your system clipboard
 - Seamlessly drag and drop images from your web browser or file explorer
@@ -37,17 +37,17 @@ FEATURES                                *img-clip.nvim-img-clip.nvim-features*
 - Compatible with Linux, macOS, and Windows, including WSL!
 
 
-REQUIREMENTS                        *img-clip.nvim-img-clip.nvim-requirements*
+REQUIREMENTS                        *zot-clip.nvim-zot-clip.nvim-requirements*
 
 - **Linux:** xclip <https://github.com/astrand/xclip> (x11) or wl-clipboard <https://github.com/bugaevc/wl-clipboard> (wayland)
 - **MacOS:** pngpaste <https://github.com/jcsalterego/pngpaste>
 - **Windows:** No additional requirements
 
 
-  [!IMPORTANT] Run `:checkhealth img-clip` after installation to ensure
+  [!IMPORTANT] Run `:checkhealth zot-clip` after installation to ensure
   requirements are satisfied.
 
-INSTALLATION                        *img-clip.nvim-img-clip.nvim-installation*
+INSTALLATION                        *zot-clip.nvim-zot-clip.nvim-installation*
 
 Install the plugin with your preferred package manager:
 
@@ -56,7 +56,7 @@ LAZY.NVIM ~
 
 >lua
     return {
-      "HakonHarnes/img-clip.nvim",
+      "HakonHarnes/zot-clip.nvim",
       event = "VeryLazy",
       opts = {
         -- add options here
@@ -70,7 +70,7 @@ LAZY.NVIM ~
 <
 
 
-USAGE                                      *img-clip.nvim-img-clip.nvim-usage*
+USAGE                                      *zot-clip.nvim-zot-clip.nvim-usage*
 
 
 COMMANDS ~
@@ -90,17 +90,17 @@ You can also use the Lua equivalent, which allows you to override your
 configuration by passing the options directly to the function:
 
 >lua
-    require("img-clip").paste_image(opts?, input?) -- input is optional and can be a file path or URL
+    require("zot-clip").paste_image(opts?, input?) -- input is optional and can be a file path or URL
 <
 
 Example ~
 
 >lua
-    require("img-clip").paste_image({ use_absolute_path = false, file_name = "image.png" }, "/path/to/file.png")
+    require("zot-clip").paste_image({ use_absolute_path = false, file_name = "image.png" }, "/path/to/file.png")
 <
 
 
-CONFIGURATION                      *img-clip.nvim-img-clip.nvim-configuration*
+CONFIGURATION                      *zot-clip.nvim-zot-clip.nvim-configuration*
 
 
 SETUP ~
@@ -359,12 +359,12 @@ The options can be nested arbitrarily deep:
 
 PROJECT-SPECIFIC SETTINGS WITH THE .IMG-CLIP.LUA FILE ~
 
-Project-specific settings can be specified in a `.img-clip.lua` file in the
+Project-specific settings can be specified in a `.zot-clip.lua` file in the
 root of your project. The plugin will automatically load this file and use it
 to override the default settings. If multiple files are found, the closest one
 to the current file (in any parent directory) will be used.
 
-The `.img-clip.lua` should return a Lua table containing the options (similar
+The `.zot-clip.lua` should return a Lua table containing the options (similar
 to `opts` in lazy.nvim):
 
 >lua
@@ -394,7 +394,7 @@ TEMPLATES ~
 
 Templates in the plugin use placeholders that are dynamically replaced with the
 correct values at runtime. For available placeholders, see the following table
-and the |img-clip.nvim-demonstration|
+and the |zot-clip.nvim-demonstration|
 
   ---------------------------------------------------------------------------------------
   Placeholder         Description                                    Example
@@ -425,7 +425,7 @@ Example ~
 <
 
 
-DRAG AND DROP                      *img-clip.nvim-img-clip.nvim-drag-and-drop*
+DRAG AND DROP                      *zot-clip.nvim-zot-clip.nvim-drag-and-drop*
 
 The drag and drop feature enables users to drag images from the web browser or
 file explorer into the terminal to automatically embed them, in normal mode.
@@ -476,7 +476,7 @@ powershell or pwsh. See :h shell-powershell._
 _MacOS URLs only work in Safari._
 
 
-INTEGRATIONS                        *img-clip.nvim-img-clip.nvim-integrations*
+INTEGRATIONS                        *zot-clip.nvim-zot-clip.nvim-integrations*
 
 
 TELESCOPE.NVIM ~
@@ -501,7 +501,7 @@ Example configuration ~
             local filepath = entry[1]
             actions.close(prompt_bufnr)
     
-            local img_clip = require("img-clip")
+            local img_clip = require("zot-clip")
             img_clip.paste_image(nil, filepath)
           end
     
@@ -531,7 +531,7 @@ Example configuration ~
             ft = { "jpg", "jpeg", "png", "webp" },
             confirm = function(self, item, _)
                 self:close()
-                require("img-clip").paste_image({}, "./" .. item.file) -- ./ is necessary for img-clip to recognize it as path
+                require("zot-clip").paste_image({}, "./" .. item.file) -- ./ is necessary for zot-clip to recognize it as path
             end,
         }
     end()
@@ -555,14 +555,14 @@ Example configuration ~
       local dir = oil.get_current_dir()
       oil.close()
     
-      local img_clip = require("img-clip")
+      local img_clip = require("zot-clip")
       img_clip.paste_image({}, dir .. filename)
     end
 <
 
 The above function should be bound to a keymap, e.g. through lazy.nvim.
 
-Alternatively, you can invoke img-clip.nvim directly from your oil.nvim
+Alternatively, you can invoke zot-clip.nvim directly from your oil.nvim
 configuration:
 
 Example configuration ~
@@ -575,14 +575,14 @@ Example configuration ~
         local dir = oil.get_current_dir()
         oil.close()
     
-        local img_clip = require("img-clip")
+        local img_clip = require("zot-clip")
         img_clip.paste_image({}, dir .. filename)
       end,
     }
 <
 
 
-CONTRIBUTING                        *img-clip.nvim-img-clip.nvim-contributing*
+CONTRIBUTING                        *zot-clip.nvim-zot-clip.nvim-contributing*
 
 Contributions are welcome! If you have any ideas, suggestions, or bug reports,
 please open an issue on the GitHub repository.

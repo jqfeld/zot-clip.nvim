@@ -1,6 +1,6 @@
-local config = require("img-clip.config")
-local util = require("img-clip.util")
-local fs = require("img-clip.fs")
+local config = require("zot-clip.config")
+local util = require("zot-clip.util")
+local fs = require("zot-clip.fs")
 
 describe("fs", function()
   before_each(function()

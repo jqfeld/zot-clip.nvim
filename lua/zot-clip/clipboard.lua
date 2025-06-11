@@ -1,5 +1,5 @@
-local util = require("img-clip.util")
-local config = require("img-clip.config")
+local util = require("zot-clip.util")
+local config = require("zot-clip.config")
 
 local M = {}
 
@@ -11,14 +11,14 @@ M.get_clip_cmd = function()
     return M.clip_cmd
 
   -- Windows
-  elseif (util.has("win32") or util.has("wsl")) and util.executable("powershell.exe") then
-    M.clip_cmd = "powershell.exe"
+  -- elseif (util.has("win32") or util.has("wsl")) and util.executable("powershell.exe") then
+  --   M.clip_cmd = "powershell.exe"
 
   -- MacOS
-  elseif util.has("mac") then
-    if util.executable("pngpaste") then
-      M.clip_cmd = "pngpaste"
-    end
+  -- elseif util.has("mac") then
+  --   if util.executable("pngpaste") then
+  --     M.clip_cmd = "pngpaste"
+  --   end
 
   -- Linux (Wayland)
   elseif os.getenv("WAYLAND_DISPLAY") and util.executable("wl-paste") then
@@ -35,7 +35,7 @@ M.get_clip_cmd = function()
 end
 
 ---@return boolean
-M.content_is_image = function()
+M.content_is_zot = function()
   local cmd = M.get_clip_cmd()
 
   -- Linux (X11)
@@ -46,18 +46,20 @@ M.content_is_image = function()
   -- Linux (Wayland)
   elseif cmd == "wl-paste" then
     local output = util.execute("wl-paste --list-types")
-    return output ~= nil and output:find("image/png") ~= nil
+    local custom_data = output ~= nil and output:find("application/x%-moz%-custom%-clipdata") ~= nil
+    if 
+    return custom_data
 
   -- MacOS (pngpaste)
-  elseif cmd == "pngpaste" then
-    local _, exit_code = util.execute("pngpaste -")
-    return exit_code == 0
+  -- elseif cmd == "pngpaste" then
+  --   local _, exit_code = util.execute("pngpaste -")
+  --   return exit_code == 0
 
   -- Windows
-  elseif cmd == "powershell.exe" then
-    local output =
-      util.execute("Add-Type -AssemblyName System.Windows.Forms; [System.Windows.Forms.Clipboard]::GetImage()")
-    return output ~= nil and output:find("Width") ~= nil
+  -- elseif cmd == "powershell.exe" then
+  --   local output =
+  --     util.execute("Add-Type -AssemblyName System.Windows.Forms; [System.Windows.Forms.Clipboard]::GetImage()")
+  --   return output ~= nil and output:find("Width") ~= nil
   end
 
   return false

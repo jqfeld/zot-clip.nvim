@@ -1,5 +1,5 @@
-local util = require("img-clip.util")
-local config = require("img-clip.config")
+local util = require("zot-clip.util")
+local config = require("zot-clip.config")
 
 describe("util", function()
   before_each(function()

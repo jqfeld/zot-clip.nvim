@@ -1,8 +1,8 @@
-# 📋 img-clip.nvim
+# 📋 zot-clip.nvim
 
 Effortlessly embed images into any markup language, like LaTeX, Markdown or Typst.
 
-https://github.com/HakonHarnes/img-clip.nvim/assets/89907156/ab4edc10-d296-4532-bfce-6abdd4f218bf
+https://github.com/HakonHarnes/zot-clip.nvim/assets/89907156/ab4edc10-d296-4532-bfce-6abdd4f218bf
 
 ## ⚡ Features
 
@@ -24,7 +24,7 @@ https://github.com/HakonHarnes/img-clip.nvim/assets/89907156/ab4edc10-d296-4532-
 - **Windows:** No additional requirements
 
 > [!IMPORTANT]
-> Run `:checkhealth img-clip` after installation to ensure requirements are satisfied.
+> Run `:checkhealth zot-clip` after installation to ensure requirements are satisfied.
 
 ## 📦 Installation
 
@@ -34,7 +34,7 @@ Install the plugin with your preferred package manager:
 
 ```lua
 return {
-  "HakonHarnes/img-clip.nvim",
+  "HakonHarnes/zot-clip.nvim",
   event = "VeryLazy",
   opts = {
     -- add options here
@@ -65,13 +65,13 @@ The plugin comes with the following commands:
 You can also use the Lua equivalent, which allows you to override your configuration by passing the options directly to the function:
 
 ```lua
-require("img-clip").paste_image(opts?, input?) -- input is optional and can be a file path or URL
+require("zot-clip").paste_image(opts?, input?) -- input is optional and can be a file path or URL
 ```
 
 <details> <summary>Example</summary>
 
 ```lua
-require("img-clip").paste_image({ use_absolute_path = false, file_name = "image.png" }, "/path/to/file.png")
+require("zot-clip").paste_image({ use_absolute_path = false, file_name = "image.png" }, "/path/to/file.png")
 ```
 
 </details>
@@ -324,13 +324,13 @@ dirs = {
 
 </details>
 
-### Project-specific settings with the `.img-clip.lua` file
+### Project-specific settings with the `.zot-clip.lua` file
 
-Project-specific settings can be specified in a `.img-clip.lua` file in the root of your project.
+Project-specific settings can be specified in a `.zot-clip.lua` file in the root of your project.
 The plugin will automatically load this file and use it to override the default settings.
 If multiple files are found, the closest one to the current file (in any parent directory) will be used.
 
-The `.img-clip.lua` should return a Lua table containing the options (similar to `opts` in lazy.nvim):
+The `.zot-clip.lua` should return a Lua table containing the options (similar to `opts` in lazy.nvim):
 
 ```lua
 return {
@@ -435,7 +435,7 @@ function()
         local filepath = entry[1]
         actions.close(prompt_bufnr)
 
-        local img_clip = require("img-clip")
+        local img_clip = require("zot-clip")
         img_clip.paste_image(nil, filepath)
       end
 
@@ -464,7 +464,7 @@ function()
     	ft = { "jpg", "jpeg", "png", "webp" },
     	confirm = function(self, item, _)
     	    self:close()
-    	    require("img-clip").paste_image({}, "./" .. item.file) -- ./ is necessary for img-clip to recognize it as path
+    	    require("zot-clip").paste_image({}, "./" .. item.file) -- ./ is necessary for zot-clip to recognize it as path
     	end,
     }
 end()
@@ -487,7 +487,7 @@ function()
   local dir = oil.get_current_dir()
   oil.close()
 
-  local img_clip = require("img-clip")
+  local img_clip = require("zot-clip")
   img_clip.paste_image({}, dir .. filename)
 end
 ```
@@ -496,7 +496,7 @@ The above function should be bound to a keymap, e.g. through lazy.nvim.
 
 </details>
 
-Alternatively, you can invoke img-clip.nvim directly from your oil.nvim configuration:
+Alternatively, you can invoke zot-clip.nvim directly from your oil.nvim configuration:
 
 <details> <summary>Example configuration</summary>
 
@@ -508,7 +508,7 @@ keymaps = {
     local dir = oil.get_current_dir()
     oil.close()
 
-    local img_clip = require("img-clip")
+    local img_clip = require("zot-clip")
     img_clip.paste_image({}, dir .. filename)
   end,
 }

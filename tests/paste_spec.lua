@@ -1,8 +1,8 @@
-local clipboard = require("img-clip.clipboard")
-local paste = require("img-clip.paste")
-local plugin = require("img-clip")
-local config = require("img-clip.config")
-local util = require("img-clip.util")
+local clipboard = require("zot-clip.clipboard")
+local paste = require("zot-clip.paste")
+local plugin = require("zot-clip")
+local config = require("zot-clip.config")
+local util = require("zot-clip.util")
 local spy = require("luassert.spy")
 
 describe("paste", function()
@@ -24,7 +24,7 @@ describe("paste", function()
 
   describe("paste_image", function()
     it("should paste image from clipboard if clipboard content is image", function()
-      clipboard.content_is_image = function()
+      clipboard.content_is_zot = function()
         return true
       end
 
@@ -59,7 +59,7 @@ describe("paste", function()
     end)
 
     it("should paste image from clipboard if clipboard content is a file path or url", function()
-      clipboard.content_is_image = function()
+      clipboard.content_is_zot = function()
         return false
       end
 

@@ -1,6 +1,6 @@
-local clipoard = require("img-clip.clipboard")
-local config = require("img-clip.config")
-local util = require("img-clip.util")
+local clipoard = require("zot-clip.clipboard")
+local config = require("zot-clip.config")
+local util = require("zot-clip.util")
 
 local M = {}
 

@@ -161,7 +161,7 @@ M.get_config = function()
   end
 
   -- find config file in the current directory or any parent directory
-  local config_file = vim.fn.findfile(".img-clip.lua", ".;")
+  local config_file = vim.fn.findfile(".zot-clip.lua", ".;")
   if config_file ~= "" then
     local success, output = pcall(dofile, config_file)
 

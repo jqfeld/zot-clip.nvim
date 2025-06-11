@@ -1,4 +1,4 @@
-local util = require("img-clip.util")
+local util = require("zot-clip.util")
 
 local M = {}
 
@@ -7,7 +7,7 @@ local start = vim.health.start or vim.health.report_start
 local error = vim.health.error or vim.health.report_error
 
 M.check = function()
-  start("img-clip.nvim")
+  start("zot-clip.nvim")
 
   -- Linux (Wayland)
   if os.getenv("WAYLAND_DISPLAY") then
